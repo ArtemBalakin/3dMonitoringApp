@@ -55,11 +55,6 @@ module.exports = async options =>
           secure: false,
           changeOrigin: options.tls,
         },
-        {
-          context: ['/websocket'],
-          target: 'ws://127.0.0.1:8080',
-          ws: true,
-        },
       ],
       https: options.tls,
       historyApiFallback: true,
@@ -101,7 +96,7 @@ module.exports = async options =>
         }
       ),
       new WebpackNotifierPlugin({
-        title: 'Klipper',
+        title: 'Klipper App',
         contentImage: path.join(__dirname, 'logo-jhipster.png'),
       }),
     ].filter(Boolean),

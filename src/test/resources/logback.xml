@@ -4,7 +4,7 @@
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <logger name="com.klipper.main" level="INFO"/>
+    <logger name="com.mycompany.klipperapp" level="INFO"/>
 
     <logger name="tech.jhipster" level="WARN"/>
 
@@ -36,8 +36,6 @@
     <logger name="org.springframework.cache" level="WARN"/>
     <logger name="org.thymeleaf" level="WARN"/>
     <logger name="org.xnio" level="WARN"/>
-    <logger name="kafka" level="WARN"/>
-    <logger name="org.I0Itec" level="WARN"/>
     <logger name="io.swagger.v3" level="INFO"/>
     <logger name="sun.rmi" level="WARN"/>
     <logger name="liquibase" level="WARN"/>

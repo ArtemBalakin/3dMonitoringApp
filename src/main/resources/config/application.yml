@@ -91,26 +91,8 @@ management:
             enabled: true
 
 spring:
-  autoconfigure:
-    exclude: org.springframework.boot.actuate.autoconfigure.metrics.jdbc.DataSourcePoolMetricsAutoConfiguration
   application:
-    name: Klipper
-  cloud:
-    stream:
-      kafka:
-        binder:
-          replicationFactor: 1
-          auto-create-topics: true
-          brokers: localhost:9092
-      bindings:
-        binding-in-sse:
-          destination: sse-topic
-          content-type: text/plain
-          group: klipper
-        binding-out-sse:
-          destination: sse-topic
-          content-type: text/plain
-          group: klipper
+    name: KlipperApp
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
@@ -157,13 +139,13 @@ spring:
       matching-strategy: ant_path_matcher
   task:
     execution:
-      thread-name-prefix: klipper-task-
+      thread-name-prefix: klipper-app-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: klipper-scheduling-
+      thread-name-prefix: klipper-app-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -204,12 +186,12 @@ jhipster:
   #   allow-credentials: true
   #   max-age: 1800
   mail:
-    from: Klipper@localhost
+    from: KlipperApp@localhost
   api-docs:
     default-include-pattern: ${server.servlet.context-path:}/api/**
     management-include-pattern: ${server.servlet.context-path:}/management/**
-    title: Klipper API
-    description: Klipper API documentation
+    title: Klipper App API
+    description: Klipper App API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

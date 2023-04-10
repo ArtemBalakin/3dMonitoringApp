@@ -1,1 +1,1 @@
-#org.springframework.test.context.ContextCustomizerFactory = com.klipper.main.config.TestContainersSpringContextCustomizerFactory
+org.springframework.test.context.ContextCustomizerFactory = com.mycompany.klipperapp.config.TestContainersSpringContextCustomizerFactory

@@ -18,13 +18,13 @@ logging:
     ROOT: DEBUG
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
-    com.klipper.main: DEBUG
+    com.mycompany.klipperapp: DEBUG
 
 spring:
   devtools:
     restart:
       enabled: true
-      additional-exclude: static/**,.h2.server.properties
+      additional-exclude: static/**
     livereload:
       enabled: false # we use Webpack dev server + BrowserSync for livereload
   jackson:
@@ -32,27 +32,22 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/klipper;DB_CLOSE_DELAY=-1;MODE=LEGACY
-    username: Klipper
+    url: jdbc:postgresql://localhost:5432/KlipperApp
+    username: KlipperApp
     password:
     hikari:
       poolName: Hikari
       auto-commit: false
-  h2:
-    console:
-      # disable spring boot built-in h2-console since we start it manually with correct configuration
-      enabled: false
   jpa:
+    database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
   mail:
-    protocol: smtps
-    host: smtp.mail.ru
-    port: 465
-    username: TemnyiTem@yandex.kz
-    password: Itmo2019-2020
-
+    host: localhost
+    port: 25
+    username:
+    password:
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
@@ -86,7 +81,7 @@ jhipster:
   security:
     remember-me:
       # security key (this key should be unique for your application, and kept secret)
-      key: 5ad834de0bc592a6c4fc85213bf170ce611cd95454ad57266888604b89c9de28b2957a769ef7ebf1df2d48e4ad08f1adf9b8
+      key: bc6027dad8178f65d4f9a1b3411a70c466c5cc02af774450b48226dc56c9697b23c10b7cdbc14e9679d824af3d4b91e950b2
   mail: # specific JHipster mail property, for standard properties see MailProperties
     base-url: http://127.0.0.1:8080
   logging:

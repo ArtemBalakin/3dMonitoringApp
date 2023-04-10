@@ -15,22 +15,7 @@
 
 spring:
   application:
-    name: Klipper
-  cloud:
-    stream:
-      kafka:
-        binder:
-          replicationFactor: 1
-          auto-create-topics: true
-        bindings:
-          binding-in-sse:
-            destination: sse-topic
-            content-type: text/plain
-            group: klipper
-          binding-out-sse:
-            destination: sse-topic
-            content-type: text/plain
-            group: klipper
+    name: KlipperApp
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: test
@@ -48,13 +33,13 @@ spring:
     basename: i18n/messages
   task:
     execution:
-      thread-name-prefix: klipper-task-
+      thread-name-prefix: klipper-app-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: klipper-scheduling-
+      thread-name-prefix: klipper-app-scheduling-
       pool:
         size: 20
   thymeleaf:
@@ -73,7 +58,7 @@ jhipster:
   clientApp:
     name: 'klipperApp'
   mail:
-    from: Klipper@localhost.com
+    from: KlipperApp@localhost.com
     base-url: http://127.0.0.1:8080
   logging:
     # To test json console appender
@@ -86,7 +71,7 @@ jhipster:
   security:
     remember-me:
       # security key (this key should be unique for your application, and kept secret)
-      key: 5ad834de0bc592a6c4fc85213bf170ce611cd95454ad57266888604b89c9de28b2957a769ef7ebf1df2d48e4ad08f1adf9b8
+      key: bc6027dad8178f65d4f9a1b3411a70c466c5cc02af774450b48226dc56c9697b23c10b7cdbc14e9679d824af3d4b91e950b2
 
 # ===================================================================
 # Application specific properties
