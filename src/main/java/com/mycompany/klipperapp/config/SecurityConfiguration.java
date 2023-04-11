@@ -109,6 +109,9 @@ public class SecurityConfiguration {
             .antMatchers("/test/**").permitAll()
             .antMatchers("/api/authenticate").permitAll()
             .antMatchers("/api/register").permitAll()
+            .antMatchers("/server/*").permitAll()
+            .antMatchers("/printer/*").permitAll()
+            .antMatchers("/machine/*").permitAll()
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/account/reset-password/init").permitAll()
             .antMatchers("/api/account/reset-password/finish").permitAll()
@@ -119,6 +122,7 @@ public class SecurityConfiguration {
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/prometheus").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
+
         return http.build();
         // @formatter:on
     }
