@@ -3,7 +3,7 @@ package com.mycompany.klipperapp.service.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public class FanDTO {
+public class HeaterBedDTO {
 
     @JsonProperty("temperatures")
     List<Float> temperatures;
@@ -11,6 +11,6 @@ public class FanDTO {
     @JsonProperty("targets")
     List<Long> targets;
 
-    @JsonProperty("speeds")
-    List<Long> speeds;
+    @JsonProperty("powers")
+    List<Long> powers;
 }

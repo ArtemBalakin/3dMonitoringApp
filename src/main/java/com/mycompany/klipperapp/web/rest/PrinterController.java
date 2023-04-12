@@ -1,38 +1,44 @@
 package com.mycompany.klipperapp.web.rest;
 
 import com.mycompany.klipperapp.foreign.ForeignServiceImpl;
+import com.mycompany.klipperapp.service.dto.PrinterInfoDTO;
+import com.mycompany.klipperapp.service.dto.ServerInfoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/printer")
+@RestController
+@RequestMapping("/printer")
 public class PrinterController {
 
     @Autowired
     ForeignServiceImpl foreignService;
 
     @GetMapping(value = "/info")
-    public String getServerInfo() {
-        foreignService.get();
-        return null;
+    public ResponseEntity<PrinterInfoDTO> getServerInfo() {
+        PrinterInfoDTO dto = foreignService.getPrinterInfo();
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/printer/emergencyStop")
+    @PostMapping(value = "/emergencyStop")
     public String stopPrinter() {
-        foreignService.get();
+        foreignService.emergencyStop();
         return null;
     }
 
-    @PostMapping(value = "/printer/emergencyRestart")
+    @GetMapping(value = "/restart")
     public String restartPrinter() {
-        foreignService.get();
+        foreignService.restart();
         return null;
     }
 
-    @GetMapping(value = "/objects/list")
+    @GetMapping(value = "/objectsList")
     public String getObjectsList() {
-        foreignService.get();
+        foreignService.getObjectsList();
         return null;
     }
 
@@ -59,9 +65,9 @@ public class PrinterController {
     }
 }
      */
-    @PostMapping(value = "/printer/print/resume")
+    @GetMapping(value = "/printResume")
     public String resumePrint() {
-        foreignService.get();
+        foreignService.resume();
         return null;
     }
 }
